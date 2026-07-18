@@ -1,6 +1,6 @@
 # Rocket Academic Tracker
 
-A responsive, browser-based academic tracker prototype built with HTML, CSS, and JavaScript.
+A responsive, browser-based academic tracker prototype built with HTML, CSS, and JavaScript. 
 
 ## Run locally
 
