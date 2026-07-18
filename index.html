@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A private, browser-based college academic tracker prototype.">
+  <meta name="theme-color" content="#003e7e">
+  <title>Rocket Academic Tracker</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">R</div>
+        <div><strong>Rocket Tracker</strong><span>Academic Dashboard</span></div>
+      </div>
+      <nav id="nav" aria-label="Main navigation">
+        <button class="nav-link active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+        <button class="nav-link" data-page="courses">▣ <span>Courses</span></button>
+        <button class="nav-link" data-page="assignments">▤ <span>Assignments</span></button>
+        <button class="nav-link" data-page="grades">☆ <span>Grades</span></button>
+        <button class="nav-link" data-page="attendance">✓ <span>Attendance</span></button>
+        <button class="nav-link" data-page="study">◷ <span>Study Sessions</span></button>
+        <button class="nav-link" data-page="degree">◈ <span>Degree Progress</span></button>
+        <button class="nav-link" data-page="analytics">↗ <span>Analytics</span></button>
+        <button class="nav-link" data-page="calendar">▦ <span>Calendar</span></button>
+        <button class="nav-link" data-page="schedule">□ <span>Schedule</span></button>
+        <button class="nav-link" data-page="exams">◇ <span>Exams</span></button>
+        <button class="nav-link" data-page="goals">◎ <span>Goals</span></button>
+        <button class="nav-link" data-page="notes">▧ <span>Notes</span></button>
+        <button class="nav-link" data-page="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <div class="rocket-card"><small>FUELING TOMORROWS</small><b>GO ROCKETS!</b><span>Stay focused. Keep moving forward.</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation">☰</button>
+        <div><p class="eyebrow">Academic overview</p><h1 id="page-title">Dashboard</h1></div>
+        <div class="top-actions"><button class="icon-btn" id="theme-toggle" title="Toggle theme">◐</button><button class="avatar" id="profile-avatar" title="Edit profile"><img id="profile-avatar-image" alt="Profile picture" hidden><span id="profile-avatar-initials">CK</span></button></div>
+      </header>
+
+      <section class="page active" id="dashboard-page">
+        <div class="hero"><div><p class="eyebrow">Welcome back</p><h2>Make today count.</h2><p>Track classes, deadlines, grades, attendance, and goals in one place.</p></div><div class="hero-icon">🚀</div></div>
+        <div class="stats" id="dashboard-stats"></div>
+        <div class="priority-strip" id="priority-strip"></div>
+        <div class="two-col">
+          <article class="panel"><div class="panel-head"><div><p class="eyebrow">Current semester</p><h2>Courses</h2></div><button class="link-btn" data-open="courses">View all</button></div><div id="dashboard-courses"></div></article>
+          <article class="panel"><div class="panel-head"><div><p class="eyebrow">Coming up</p><h2>Deadlines</h2></div><button class="link-btn" data-open="assignments">View all</button></div><div id="dashboard-deadlines"></div></article>
+        </div>
+      </section>
+
+      <section class="page" id="courses-page">
+        <div class="page-head"><div><p class="eyebrow">Current semester</p><h2>My Courses</h2><p>Manage your classes and progress.</p></div><button class="primary" data-modal="course">+ Add Course</button></div>
+        <div class="toolbar"><div class="filters" id="course-filters"><button class="active" data-filter="all">All</button><button data-filter="current">Current</button><button data-filter="completed">Completed</button><button data-filter="planned">Planned</button></div><input id="course-search" type="search" placeholder="Search courses…"></div>
+        <div class="summary-grid" id="course-summary"></div><div class="card-grid" id="course-grid"></div>
+      </section>
+
+      <section class="page" id="assignments-page">
+        <div class="page-head"><div><p class="eyebrow">Coursework</p><h2>Assignments</h2><p>Manage deadlines and completion.</p></div><button class="primary" data-modal="assignment">+ Add Assignment</button></div>
+        <div class="summary-grid" id="assignment-summary"></div><div class="toolbar"><div class="filters" id="assignment-filters"><button class="active" data-filter="all">All</button><button data-filter="upcoming">Upcoming</button><button data-filter="completed">Completed</button><button data-filter="overdue">Overdue</button></div><input id="assignment-search" type="search" placeholder="Search assignments…"></div>
+        <div class="panel table-wrap"><table><thead><tr><th>Assignment</th><th>Course</th><th>Due</th><th>Points</th><th>Status</th><th></th></tr></thead><tbody id="assignment-table"></tbody></table></div>
+      </section>
+
+      <section class="page" id="grades-page">
+        <div class="page-head"><div><p class="eyebrow">Performance</p><h2>Grades</h2><p>Review grades and estimated GPA.</p></div></div>
+        <div class="summary-grid" id="grade-summary"></div><div class="panel table-wrap"><table><thead><tr><th>Course</th><th>Credits</th><th>Percentage</th><th>Letter</th><th>Points</th></tr></thead><tbody id="grade-table"></tbody></table></div>
+      </section>
+
+      <section class="page" id="attendance-page">
+        <div class="page-head"><div><p class="eyebrow">Presence</p><h2>Attendance</h2><p>Record attended and missed class meetings.</p></div><button class="primary" data-modal="attendance">+ Record Meeting</button></div>
+        <div class="summary-grid" id="attendance-summary"></div><div class="card-grid" id="attendance-grid"></div>
+      </section>
+
+
+      <section class="page" id="study-page">
+        <div class="page-head"><div><p class="eyebrow">Focus tracking</p><h2>Study Sessions</h2><p>Log focused work, track weekly time, and understand where study effort goes.</p></div><button class="primary" data-modal="study">+ Log Session</button></div>
+        <div class="summary-grid" id="study-summary"></div>
+        <div class="two-col"><article class="panel"><div class="panel-head"><div><p class="eyebrow">Recent activity</p><h2>Study Log</h2></div></div><div id="study-list"></div></article><article class="panel"><div class="panel-head"><div><p class="eyebrow">By course</p><h2>Time Distribution</h2></div></div><div id="study-distribution"></div></article></div>
+      </section>
+
+      <section class="page" id="degree-page">
+        <div class="page-head"><div><p class="eyebrow">Graduation planning</p><h2>Degree Progress</h2><p>Track requirements, completed credits, planned classes, and graduation progress.</p></div><button class="primary" data-modal="requirement">+ Add Requirement</button></div>
+        <div class="summary-grid" id="degree-summary"></div>
+        <div class="panel table-wrap"><table><thead><tr><th>Requirement</th><th>Category</th><th>Credits</th><th>Completed</th><th>Progress</th><th></th></tr></thead><tbody id="degree-table"></tbody></table></div>
+      </section>
+
+      <section class="page" id="analytics-page">
+        <div class="page-head"><div><p class="eyebrow">Academic intelligence</p><h2>Analytics</h2><p>See performance, workload, attendance, study time, and risk indicators together.</p></div></div>
+        <div class="summary-grid" id="analytics-summary"></div>
+        <div class="analytics-grid"><article class="panel"><div class="panel-head"><div><p class="eyebrow">Performance</p><h2>Course Grades</h2></div></div><div id="grade-bars"></div></article><article class="panel"><div class="panel-head"><div><p class="eyebrow">Workload</p><h2>Assignment Status</h2></div></div><div id="workload-chart"></div></article><article class="panel wide"><div class="panel-head"><div><p class="eyebrow">Recommendations</p><h2>Academic Insights</h2></div></div><div id="insights"></div></article></div>
+      </section>
+
+      <section class="page" id="calendar-page">
+        <div class="page-head"><div><p class="eyebrow">Unified planning</p><h2>Academic Calendar</h2><p>Assignments, exams, official academic dates, breaks, and personal campus events in one calendar.</p></div><div class="button-row"><button class="secondary" id="calendar-today">Today</button><select class="semester-select" id="semester-select" aria-label="Choose semester"><option value="custom">Current month</option></select><button class="secondary" id="export-calendar">Export .ics</button><button class="primary" data-modal="event">+ Add Event</button></div></div>
+        <div class="calendar-toolbar panel"><div class="calendar-nav"><button class="icon-btn" id="calendar-prev" aria-label="Previous month">‹</button><h2 id="calendar-title"></h2><button class="icon-btn" id="calendar-next" aria-label="Next month">›</button></div><div class="calendar-filters" id="calendar-filters"><button class="active" data-calendar-filter="all">All</button><button data-calendar-filter="assignment">Assignments</button><button data-calendar-filter="exam">Exams</button><button data-calendar-filter="academic">UToledo dates</button><button data-calendar-filter="personal">My events</button></div></div>
+        <div class="calendar-layout"><article class="panel calendar-panel"><div class="calendar-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div class="calendar-grid" id="calendar-grid"></div></article><aside class="calendar-side"><article class="panel"><div class="panel-head"><div><p class="eyebrow">Selected date</p><h2 id="selected-date-title">Events</h2></div></div><div id="selected-date-events"></div></article><article class="panel"><div class="panel-head"><div><p class="eyebrow">Next up</p><h2>Upcoming</h2></div></div><div id="calendar-upcoming"></div></article><article class="panel source-card"><h3>Official calendar source</h3><p>University dates are preloaded from the UToledo Office of the Provost 2026–2027 academic calendar. Always verify deadline changes with the university.</p><a href="https://www.utoledo.edu/offices/provost/calendar/" target="_blank" rel="noopener">Open official UToledo calendar ↗</a></article></aside></div>
+      </section>
+      <section class="page" id="schedule-page"><div class="page-head"><div><p class="eyebrow">Week at a glance</p><h2>Schedule</h2><p>Your recurring class schedule.</p></div></div><div class="panel" id="schedule-list"></div></section>
+      <section class="page" id="exams-page"><div class="page-head"><div><p class="eyebrow">Assessments</p><h2>Exams</h2><p>Upcoming quizzes, midterms, and finals.</p></div><button class="primary" data-modal="exam">+ Add Exam</button></div><div class="panel" id="exam-list"></div></section>
+      <section class="page" id="goals-page"><div class="page-head"><div><p class="eyebrow">Milestones</p><h2>Goals</h2><p>Set measurable academic targets.</p></div><button class="primary" data-modal="goal">+ Add Goal</button></div><div class="card-grid" id="goal-grid"></div></section>
+      <section class="page" id="notes-page"><div class="page-head"><div><p class="eyebrow">Quick capture</p><h2>Notes</h2><p>Notes are saved automatically in this browser.</p></div></div><div class="panel"><textarea id="notes" class="notes" placeholder="Write study notes, reminders, or ideas…"></textarea></div></section>
+      <section class="page" id="settings-page"><div class="page-head"><div><p class="eyebrow">Preferences</p><h2>Settings</h2><p>Manage local data and appearance.</p></div></div><div class="settings-grid"><article class="panel profile-panel"><div class="profile-preview"><button class="profile-photo" id="profile-photo-button" aria-label="Choose profile picture"><img id="settings-profile-image" alt="Profile picture" hidden><span id="settings-profile-initials">CK</span><i>✎</i></button><div><h3 id="profile-display-name">Caleb</h3><p id="profile-display-details">University of Toledo student</p></div></div><div class="button-row"><label class="secondary file-label">Choose photo<input id="profile-picture-input" type="file" accept="image/png,image/jpeg,image/webp"></label><button class="secondary" id="edit-profile">Edit profile</button><button class="danger-btn" id="remove-profile-picture">Remove photo</button></div><p class="profile-help">The picture is resized and saved only in this browser. It is not uploaded to GitHub.</p></article><article class="panel"><h3>Appearance</h3><p>Switch between light and dark display modes.</p><button class="secondary" id="settings-theme">Toggle theme</button></article><article class="panel"><h3>Data</h3><p>Export a backup or import an existing JSON backup.</p><div class="button-row"><button class="secondary" id="export-data">Export</button><label class="secondary file-label">Import<input id="import-data" type="file" accept="application/json"></label></div></article><article class="panel danger"><h3>Reset prototype</h3><p>Replace all browser data with sample information.</p><button class="danger-btn" id="reset-data">Reset data</button></article></div></section>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <button class="bottom-link active" data-mobile-page="dashboard"><span>⌂</span><small>Home</small></button>
+    <button class="bottom-link" data-mobile-page="courses"><span>▣</span><small>Courses</small></button>
+    <button class="bottom-link" data-mobile-page="assignments"><span>▤</span><small>Tasks</small></button>
+    <button class="bottom-link" data-mobile-page="grades"><span>☆</span><small>Grades</small></button>
+    <button class="bottom-link" data-mobile-page="attendance"><span>✓</span><small>Attend.</small></button>
+  </nav>
+
+  <dialog id="modal"><form method="dialog" id="modal-form"><div class="modal-head"><h2 id="modal-title">Add item</h2><button value="cancel" aria-label="Close">×</button></div><div id="modal-fields"></div><div class="modal-actions"><button value="cancel" class="secondary">Cancel</button><button value="default" class="primary" id="modal-save">Save</button></div></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
